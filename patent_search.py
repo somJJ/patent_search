@@ -73,7 +73,7 @@ def save_to_excel(data, filename):
 
 if __name__ == "__main__":
     query = "다공성 실리콘"
-    company_name = "삼성전자주식회사"  # 실제 검색할 회사명으로 대체
+    company_name = "삼성전자주식회사"  # 검색할 회사명으로 대체
     num_results = 100  # 가져올 최대 검색 결과 수
     
     patents_data = get_filtered_patents_data(query, company_name, num_results)
