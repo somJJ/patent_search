@@ -34,7 +34,7 @@ def get_filtered_patents_data(query, company_name, num_results, company_verifica
                     content = span_elements[3].text.strip() if len(span_elements) > 0 else "N/A"
 
                     # 링크 추출
-                    # 특허 번호 추출
+                    # 특허 번호 추출해서 링크 주소 만드는 방식으로 함
                     patent_number_element = item.find_element(By.CSS_SELECTOR, 'span[data-proto="OPEN_PATENT_PDF"]')
                     patent_number = patent_number_element.text.strip()
 
@@ -94,26 +94,26 @@ def run_crawler():
 
 # GUI 생성
 root = tk.Tk()
-root.title("JJANG SOMI")
+root.title("Patent Search")
 root.geometry("640x200+300+300")
 
-# Query 입력 필드
+# Query 입력
 tk.Label(root, text="Search Word:").grid(row=0, column=0, sticky=tk.W, padx=10, pady=5)
 query_entry = tk.Entry(root, width=40)
 query_entry.grid(row=0, column=1, padx=10, pady=5)
 
-# Company Name 입력 필드
+# Company Name 입력
 tk.Label(root, text="Company Name:").grid(row=1, column=0, sticky=tk.W, padx=10, pady=5)
 company_entry = tk.Entry(root, width=40)
 company_entry.grid(row=1, column=1, padx=10, pady=5)
 
-# Company Verification 입력 필드
+# Company Verification 입력
 tk.Label(root, text="Company Verification:").grid(row=2, column=0, sticky=tk.W, padx=10, pady=5)
 verification_entry = tk.Entry(root, width=40)
 verification_entry.grid(row=2, column=1, padx=10, pady=5)
 
 
-# Mode 선택 필드
+# Mode 선택
 tk.Label(root, text="Mode:").grid(row=4, column=0, sticky=tk.W, padx=10, pady=5)
 mode_var = tk.StringVar(value="titleonly")
 mode_titleonly = tk.Radiobutton(root, text="Title Only", variable=mode_var, value="titleonly")
